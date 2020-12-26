@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+	<div class="card" style="width: 18rem;">
+		<img src="http://via.placeholder.com/300x300" class="card-img-top" alt="...">
+		<div class="card-body">
+			<h5 class="card-title">{{this.country}}, {{this.city}}, {{this.address}}</h5>
+			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+				card's
+				content.</p>
+			<a href="/apartment/{{this.id}}" class="btn btn-primary">See details</a>
+			{{#if loggedIn}}
+				<a href="/apartment/{{this.id}}/edit" class="btn btn-primary">Edit details</a>
+				<form action="/apartment/{{this.id}}/delete" method="post">
+					<button type="submit" class="btn btn-primary">Delete</button>
+				</form>
+			{{/if}}
+		</div>
+	</div>
+</div>
