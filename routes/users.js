@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const {uploadSingle} = require('../configs/upload-pics-single.config');
 const {checkAuthenticated} = require('../configs/passport.config');
 const User = require('../models/User.model');
 
@@ -15,8 +16,12 @@ router.get('/signup', (req, res, next) => {
 	res.render('users/signup');
 });
 
-router.post('/signup', (req, res, next) => {
+router.post('/signup', uploadSingle, (req, res, next) => {
 	const {email, password} = req.body;
+	const profilePic = req.file.path;
+
+	// console.log(file);
+	console.log(profilePic);
 
 	bcryptjs
 		.genSalt(saltRounds)
@@ -26,7 +31,8 @@ router.post('/signup', (req, res, next) => {
 		.then(hashedPassword => {
 			return User.create({
 				email,
-				passwordHash: hashedPassword
+				passwordHash: hashedPassword,
+				profilePic: profilePic
 			});
 		})
 		.then(userFromDB => {

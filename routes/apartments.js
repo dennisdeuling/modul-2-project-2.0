@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
-const multer = require('multer');
-const path = require('path');
-const {uploadArray} = require('../configs/uploadpics.config');
+const {uploadArray} = require('../configs/upload-pics-array.config');
 const {checkAuthenticated} = require('../configs/passport.config');
 const Apartment = require('../models/Apartment.model');
 

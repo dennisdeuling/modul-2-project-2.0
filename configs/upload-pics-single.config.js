@@ -2,13 +2,13 @@ const multer = require('multer');
 const path = require('path');
 
 const storage = multer.diskStorage({
-	destination: './public/uploads',
+	destination: './public/uploads/profile-pics',
 	filename: (req, file, callback) => {
 		callback(null, `${file.fieldname} - ${Date.now()}${path.extname(file.originalname)}`);
 	}
 });
 
-const uploadArray = multer({
+const uploadSingle = multer({
 	storage: storage,
 	limits: {
 		fileSize: 100000000
@@ -16,7 +16,7 @@ const uploadArray = multer({
 	fileFilter: (req, file, callback) => {
 		checkFileType(file, callback);
 	}
-}).array('file', 4);
+}).single('profile');
 
 const checkFileType = (file, callback) => {
 	const fileTypes = /jpeg|jpg|png|gif/;
@@ -30,4 +30,4 @@ const checkFileType = (file, callback) => {
 	}
 };
 
-module.exports.uploadArray = uploadArray;
+module.exports.uploadSingle = uploadSingle;
