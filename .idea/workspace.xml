@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55315dd1-d647-47af-9b71-51ae7c5d7903" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/upload-pics-single.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/uploadpics.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/upload-pics-array.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/users/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/signup.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/apartments/apartment-create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartment-create.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +14,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,16 +32,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="enabled" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/configs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/apartments" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/apartments" />
       <recent name="$PROJECT_DIR$/configs" />
     </key>
   </component>
@@ -50,7 +56,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608996136849</updated>
-      <workItem from="1608996140182" duration="3328000" />
+      <workItem from="1608996140182" duration="3728000" />
+      <workItem from="1609584004952" duration="52000" />
+      <workItem from="1609584079252" duration="2811000" />
     </task>
     <servers />
   </component>
@@ -67,6 +75,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

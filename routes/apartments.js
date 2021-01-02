@@ -17,6 +17,18 @@ router.get('/', (req, res, next) => {
 		});
 });
 
+router.get('/search', (req, res, next) => {
+	const {city, checkin, checkout, guests} = req.query;
+	Apartment.find({city})
+		.then(apartments => {
+			console.log(apartments);
+			res.render('apartments/apartments-searchResults', {apartments});
+		})
+		.catch(error => {
+			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+		});
+});
+
 router.get('/apartment/create', checkAuthenticated, (req, res, next) => {
 	const loggedIn = req.isAuthenticated();
 	res.render('apartments/apartment-create', {loggedIn: loggedIn});
