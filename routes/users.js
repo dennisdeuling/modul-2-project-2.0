@@ -18,30 +18,47 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', uploadSingle, (req, res, next) => {
 	const {email, password} = req.body;
-	const profilePic = req.file.path;
+	// const profilePic = req.file.path.replace('public\/', '');
 
-	// console.log(file);
-	console.log(profilePic);
+	if (!email || !password) {
+		res.locals.error_msg.push('Username and Password are required!');
+		res.render('users/signup');
+	}
 
-	bcryptjs
-		.genSalt(saltRounds)
-		.then(salt => {
-			return bcryptjs.hash(password, salt);
-		})
-		.then(hashedPassword => {
-			return User.create({
-				email,
-				passwordHash: hashedPassword,
-				profilePic: profilePic
+	if (email) {
+		User.findOne({email: email})
+			.then(userFromDB => {
+				if (userFromDB) {
+					console.log('userFromDB: true');
+					req.flash('warning_msg', `This email ${email} already exists! Please login!`);
+					res.redirect('/login');
+				} else {
+					console.log('userFromDB: false');
+					bcryptjs
+						.genSalt(saltRounds)
+						.then(salt => {
+							return bcryptjs.hash(password, salt);
+						})
+						.then(hashedPassword => {
+							return User.create({
+								email,
+								passwordHash: hashedPassword
+								//profilePic: profilePic
+							});
+						})
+						.then(userFromDB => {
+							req.flash('success_msg', `Your Account with the email ${email} is created! Please login!`);
+							res.redirect('/login');
+						})
+						.catch(error => {
+							console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+						});
+				}
+			})
+			.catch(error => {
+				console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
 			});
-		})
-		.then(userFromDB => {
-			console.log(`The new user is ${userFromDB}`);
-			res.render('users/success-message');
-		})
-		.catch(error => {
-			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
-		});
+	}
 });
 
 router.get('/signup/success', (req, res, next) => {
@@ -49,6 +66,7 @@ router.get('/signup/success', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
+	console.log(res.locals);
 	res.render('users/login');
 });
 

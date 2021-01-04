@@ -1,6 +1,8 @@
 <h1>Login for users 😉</h1>
 
 <form action="/login" method="post">
+	{{> warning_msg }}
+	{{> success_msg }}
 	<div class="mb-3">
 		<label for="email" class="form-label">Email address</label>
 		<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">

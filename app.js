@@ -35,12 +35,13 @@ app.use(cookieParser());
 app.use(flash());
 
 // Global vars for flash
-/*  app.use((req, res, next) => {
-	res.local.success_msg = req.flash('success-msg');
-	res.local.error_msg = req.flash('error-msg');
-	res.local.error = req.flash('error');
+app.use((req, res, next) => {
+	res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error_msg');
+	res.locals.warning_msg = req.flash('warning_msg');
+	res.locals.error = req.flash('error');
 	next();
-}); */
+});
 
 // Express View engine setup
 app.use(require('node-sass-middleware')({
