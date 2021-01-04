@@ -22,9 +22,13 @@ const apartmentSchema = new Schema({
 		required: true,
 		trim: true
 	},
+	booked: {
+		checkin: [String],
+		checkout: [String]
+	},
 	userId: {
-		type: String,
-		required: true
+		type: String
+		// required: true
 	},
 	location: {
 		type: {

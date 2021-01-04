@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55315dd1-d647-47af-9b71-51ae7c5d7903" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/views/partials/buttonBook.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/buttonDelete.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/buttonEditDetails.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/buttonSeeDetails.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/slider.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/seed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/db.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/db.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/upload-pics-array.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/upload-pics-array.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Apartment.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Apartment.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/apartments/apartment-create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartment-create.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/apartments/apartment-detail.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartment-detail.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/apartments/apartment-edit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartment-edit.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/apartments/apartments-searchResults.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartments-searchResults.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/apartmentCard.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/apartmentCard.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +37,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1mCSZgP9nIIU5WLOtUTn76JR6HM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,15 +57,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/apartments" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/partials" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/partials" />
       <recent name="$PROJECT_DIR$/views/apartments" />
       <recent name="$PROJECT_DIR$/configs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -58,7 +82,7 @@
       <updated>1608996136849</updated>
       <workItem from="1608996140182" duration="3728000" />
       <workItem from="1609584004952" duration="52000" />
-      <workItem from="1609584079252" duration="2811000" />
+      <workItem from="1609584079252" duration="26711000" />
     </task>
     <servers />
   </component>

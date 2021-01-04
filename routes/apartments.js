@@ -7,10 +7,9 @@ const Apartment = require('../models/Apartment.model');
 
 
 router.get('/', (req, res, next) => {
-	const loggedIn = req.isAuthenticated();
 	Apartment.find()
 		.then(apartments => {
-			res.render('apartments/apartments-list', {apartments, loggedIn: loggedIn});
+			res.render('apartments/apartments-list', {apartments});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -19,10 +18,34 @@ router.get('/', (req, res, next) => {
 
 router.get('/search', (req, res, next) => {
 	const {city, checkin, checkout, guests} = req.query;
-	Apartment.find({city})
-		.then(apartments => {
-			console.log(apartments);
-			res.render('apartments/apartments-searchResults', {apartments});
+	const dataQuery = [];
+	let query;
+
+	if (city) {
+		dataQuery.push({city: city});
+	}
+	if (checkin) {
+		dataQuery.push({'booked.checkin': {$gt: [checkin]}});
+	}
+	if (checkout) {
+		dataQuery.push({'booked.checkout': {$lt: [checkout]}});
+	}
+	/*
+	if (guests) {
+		dataQuery.push({guests: guests});
+	} */
+
+	if (dataQuery.length == 1) {
+		query = dataQuery[0];
+	} else if (dataQuery.length > 1) {
+		query = {$and: dataQuery};
+	}
+
+	Apartment
+		.find(query)
+		.then(apartment => {
+			console.log(apartment);
+			res.render('apartments/apartments-searchResults', {apartment});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -30,12 +53,10 @@ router.get('/search', (req, res, next) => {
 });
 
 router.get('/apartment/create', checkAuthenticated, (req, res, next) => {
-	const loggedIn = req.isAuthenticated();
-	res.render('apartments/apartment-create', {loggedIn: loggedIn});
+	res.render('apartments/apartment-create');
 });
 
 router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, next) => {
-	const loggedIn = req.isAuthenticated();
 	const {address, zipCode, city, country} = req.body;
 	let data = {};
 	const uploadedPics = [];
@@ -71,7 +92,7 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 			Apartment.create(data)
 				.then(apartment => {
 					console.log(apartment);
-					res.render('apartments/apartment-detail', {apartment, loggedIn: loggedIn});
+					res.render('apartments/apartment-detail', {apartment});
 				})
 				.catch(error => {
 					console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -83,11 +104,21 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 });
 
 router.get('/apartment/:id', (req, res, next) => {
-	const loggedIn = req.isAuthenticated();
 	Apartment.findById(req.params.id)
 		.then(apartment => {
 			// console.log(apartment);
-			res.render('apartments/apartment-detail', {apartment, loggedIn: loggedIn});
+			res.render('apartments/apartment-detail', {apartment});
+		})
+		.catch(error => {
+			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+		});
+});
+
+router.post('/apartment/:id/book', (req, res, next) => {
+	Apartment.findById(req.params.id)
+		.then(apartment => {
+			// console.log(apartment);
+			res.render('apartments/apartment-detail', {apartment});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -95,11 +126,10 @@ router.get('/apartment/:id', (req, res, next) => {
 });
 
 router.post('/apartment/:id/delete', (req, res, next) => {
-	const loggedIn = req.isAuthenticated();
 	Apartment.findByIdAndRemove(req.params.id)
 		.then(apartmentDeleted => {
 			console.log(apartmentDeleted);
-			res.redirect('/', {loggedIn: loggedIn});
+			res.redirect('/');
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -107,11 +137,10 @@ router.post('/apartment/:id/delete', (req, res, next) => {
 });
 
 router.get('/apartment/:id/edit', checkAuthenticated, (req, res, next) => {
-	const loggedIn = req.isAuthenticated();
 	Apartment.findById(req.params.id)
 		.then(apartment => {
 			// console.log(apartment);
-			res.render('apartments/apartment-edit', {apartment, loggedIn: loggedIn});
+			res.render('apartments/apartment-edit', {apartment});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -119,11 +148,10 @@ router.get('/apartment/:id/edit', checkAuthenticated, (req, res, next) => {
 });
 
 router.post('/apartment/:id/edit', checkAuthenticated, (req, res, next) => {
-	const loggedIn = req.isAuthenticated();
 	Apartment.findByIdAndUpdate(req.params.id, req.body, {new: true})
 		.then(apartmentNew => {
 			// console.log(`Updated apartment: ${apartmentNew}`);
-			res.redirect(`/apartment/${req.params.id}`, {loggedIn: loggedIn});
+			res.redirect(`/apartment/${req.params.id}`);
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -132,11 +160,10 @@ router.post('/apartment/:id/edit', checkAuthenticated, (req, res, next) => {
 
 router.get('/my-apartments', checkAuthenticated, (req, res, next) => {
 	const userId = req.session.passport.user;
-	const loggedIn = req.isAuthenticated();
 	Apartment.find({userId: userId})
 		.then(apartments => {
 			// console.log(apartments);
-			res.render('apartments/my-apartments', {apartments, loggedIn: loggedIn});
+			res.render('apartments/my-apartments', {apartments});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);

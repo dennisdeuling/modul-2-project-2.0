@@ -6,13 +6,10 @@
 			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
 				card's
 				content.</p>
-			<a href="/apartment/{{this.id}}" class="btn btn-primary">See details</a>
-			{{#if loggedIn}}
-				<a href="/apartment/{{this.id}}/edit" class="btn btn-primary">Edit details</a>
-				<form action="/apartment/{{this.id}}/delete" method="post">
-					<button type="submit" class="btn btn-primary">Delete</button>
-				</form>
-			{{/if}}
+			{{> buttonSeeDetails }}
+			{{> buttonEditDetails }}
+			{{> buttonDelete }}
+			{{> buttonBook }}
 		</div>
 	</div>
 </div>

@@ -4,7 +4,12 @@ const path = require('path');
 const storage = multer.diskStorage({
 	destination: './public/uploads/apartments',
 	filename: (req, file, callback) => {
-		callback(null, `${file.fieldname} - ${Date.now()}${path.extname(file.originalname)}`);
+		req.files.forEach(pics => {
+			if (pics.path) {
+				pics.path = pics.path.replace('public/', '');
+			}
+		});
+		callback(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`);
 	}
 });
 
