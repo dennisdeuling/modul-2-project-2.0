@@ -145,7 +145,7 @@ router.post('/apartment/:id/delete', (req, res, next) => {
 router.get('/apartment/:id/edit', checkAuthenticated, (req, res, next) => {
 	Apartment.findById(req.params.id)
 		.then(apartment => {
-			// console.log(apartment);
+			console.log(apartment);
 			res.render('apartments/apartment-edit', {apartment});
 		})
 		.catch(error => {
