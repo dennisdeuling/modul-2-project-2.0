@@ -3,6 +3,7 @@ const router = express.Router();
 const {uploadArray} = require('../configs/upload-pics-array.config');
 const {checkAuthenticated} = require('../configs/passport.config');
 const User = require('../models/User.model');
+const Apartment = require('../models/Apartment.model');
 
 // bcryptjs and session
 const bcryptjs = require('bcryptjs');
@@ -30,6 +31,7 @@ router.post('/signup', uploadArray, (req, res, next) => {
 	if (!email || !password || uploadedPic == 0) {
 		res.locals.error_msg.push('Username, Password and a Profile Pic is required!');
 		res.render('users/signup');
+		return;
 	}
 
 	if (email) {
@@ -54,7 +56,7 @@ router.post('/signup', uploadArray, (req, res, next) => {
 							});
 						})
 						.then(userFromDB => {
-							req.flash('success_msg', `Your Account with the email ${email} is created! Please login!`);
+							req.flash('success_msg', `Your Account with the email ${email} has been created! Please login!`);
 							res.redirect('/login');
 						})
 						.catch(error => {
@@ -68,20 +70,28 @@ router.post('/signup', uploadArray, (req, res, next) => {
 	}
 });
 
-router.get('/signup/success', (req, res, next) => {
-	res.render('users/success-message');
-});
-
 router.get('/login', (req, res, next) => {
-	console.log(res.locals);
 	res.render('users/login');
 });
 
 router.post('/login', (req, res, next) => {
 	passport.authenticate('local', {
-		successRedirect: '/',
+		successRedirect: '/dashboard',
 		failureRedirect: '/login'
 	})(req, res, next);
+});
+
+router.get('/dashboard', (req, res, next) => {
+	const userId = req.session.passport.user;
+
+	Apartment.find({userId: userId})
+		.then(apartments => {
+			console.log(apartments);
+			res.render('users/dashboard', {apartments});
+		})
+		.catch(error => {
+			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+		});
 });
 
 router.get('/logout', checkAuthenticated, (req, res, next) => {

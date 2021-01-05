@@ -1,0 +1,34 @@
+<h1>My Apartments</h1>
+
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<th scope="col">City</th>
+		<th scope="col">Address</th>
+		<th scope="col">Price</th>
+		<th scope="col">Details</th>
+		<th scope="col">Edit</th>
+		<th scope="col">Delete</th>
+	</tr>
+	</thead>
+	<tbody>
+	{{#each apartments}}
+		<tr>
+			<td>{{this.city}}</td>
+			<td>{{this.address}}</td>
+			<td>{{this.city}}</td>
+			<td><a href="/apartment/{{this.id}}" class="fas fa-info-circle"></a></td>
+			<td><a href="/apartment/{{this.id}}/edit" class="fas fa-edit"></a></td>
+			<td>
+				<form action="/apartment/{{this.id}}/delete" method="post">
+					<button type="submit" class="fas fa-trash-alt"></button>
+				</form>
+			</td>
+		</tr>
+	{{/each}}
+	</tbody>
+</table>
+<a href="/apartment/create" class="btn btn-primary">Create a new Apartment</a>
+
+
+

@@ -11,7 +11,7 @@ const apartments = [{
 		checkin: ['2021-01-03', '2021-01-03', '2021-01-03'],
 		checkout: ['2021-01-06', '2021-01-06', '2021-01-06']
 	},
-	userId: 802340389,
+	userId: '5ff44349728eb77741a51888',
 	coordinates: [52.520008, 13.404954],
 	images: {
 		path: [
@@ -30,7 +30,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff44349728eb77741a51888',
 	coordinates: [52.377956, 4.897070],
 	images: {
 		path: [
@@ -49,7 +49,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff44349728eb77741a51888',
 	coordinates: [48.864716, 2.349014],
 	images: {
 		path: [
