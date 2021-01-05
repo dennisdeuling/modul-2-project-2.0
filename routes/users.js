@@ -22,8 +22,7 @@ router.post('/signup', uploadArray, (req, res, next) => {
 	const uploadedPic = [];
 	req.files.forEach(pics => {
 		if (pics.path) {
-			pics.path = pics.path.replace('public\/', '');
-			console.log('in function: ', pics.path);
+			pics.path = pics.path.replace('public', '');
 			uploadedPic.push(pics.path);
 		}
 	});

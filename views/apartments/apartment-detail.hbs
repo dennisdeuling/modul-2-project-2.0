@@ -1,1 +1,43 @@
-{{> apartmentCard apartment}}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1>My Headline</h1>
+			<h6>{{apartment.city}}, {{apartment.address}}</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<img src="{{apartment.images.path.[0]}}" class="rounded img-fluid" alt="...">
+			<img src="{{apartment.images.path.[1]}}" class="rounded img-fluid" alt="Responsive image">
+			<img src="{{apartment.images.path.[2]}}" class="rounded img-fluid" alt="Responsive image">
+			<img src="{{apartment.images.path.[3]}}" class="rounded img-fluid" alt="Responsive image">
+			<img src="{{apartment.images.path.[4]}}" class="rounded img-fluid" alt="Responsive image">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h3>Meine Wohnung: Gastgeber</h3>
+			<h6>Rooms</h6>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<ul>
+				<li>Ausstattung</li>
+				<li>Ausstattung</li>
+				<li>Ausstattung</li>
+				<li>Ausstattung</li>
+			</ul>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<p>My Text for this apartment</p>
+		</div>
+	</div>
+</div>
+
+
+

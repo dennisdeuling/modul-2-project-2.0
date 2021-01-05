@@ -16,6 +16,7 @@ router.get('/', (req, res, next) => {
 		});
 });
 
+
 router.get('/search', (req, res, next) => {
 	const {city, checkin, checkout, guests} = req.query;
 	const dataQuery = [];
@@ -57,21 +58,17 @@ router.get('/apartment/create', checkAuthenticated, (req, res, next) => {
 });
 
 router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, next) => {
-	const {address, zipCode, city, country} = req.body;
 	let data = {};
 	const uploadedPics = [];
 	req.files.forEach(pics => {
 		if (pics.path) {
-			pics.path = pics.path.replace('public\/', '');
-			console.log('in function: ', pics.path);
+			pics.path = pics.path.replace('public', '');
 			uploadedPics.push(pics.path);
 		}
 	});
 
-	console.log('Array: ', uploadedPics);
-
 	const getCoordinates = async () => {
-		const response = await fetch(encodeURI(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}+${zipCode}+${city}+${country}&key=${process.env.GOOGLE_MAPS_API_KEY}`));
+		const response = await fetch(encodeURI(`https://maps.googleapis.com/maps/api/geocode/json?address=${req.body.address}+${req.body.zipCode}+${req.body.city}+${req.body.country}&key=${process.env.GOOGLE_MAPS_API_KEY}`));
 		const data = await response.json();
 		const location = data.results[0].geometry.location;
 		const coordinates = [location.lat, location.lng];
@@ -91,6 +88,14 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 				},
 				images: {
 					path: uploadedPics
+				},
+				facilities: {
+					wifi: req.body.wifi || false,
+					tv: req.body.tv || false,
+					washer: req.body.washer || false,
+					dryer: req.body.dryer || false,
+					dishwasher: req.body.dishwasher || false,
+					parkinglot: req.body.parkinglot || false
 				}
 			};
 		})
@@ -110,9 +115,10 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 });
 
 router.get('/apartment/:id', (req, res, next) => {
+
 	Apartment.findById(req.params.id)
 		.then(apartment => {
-			// console.log(apartment);
+			console.log('Apartment-Detail: ', apartment);
 			res.render('apartments/apartment-detail', {apartment});
 		})
 		.catch(error => {

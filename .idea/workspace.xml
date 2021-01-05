@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55315dd1-d647-47af-9b71-51ae7c5d7903" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/stylesheets/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/partials/navigation.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users/dashboard.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/seed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Apartment.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Apartment.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/apartments.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/users/success-message.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/apartments/apartment-create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartment-create.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/apartments/apartment-detail.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartment-detail.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/apartmentCreate_Update.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/apartmentCreate_Update.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/apartmentPics.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/apartmentPics.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,7 @@
       <updated>1608996136849</updated>
       <workItem from="1608996140182" duration="3728000" />
       <workItem from="1609584004952" duration="52000" />
-      <workItem from="1609584079252" duration="48305000" />
+      <workItem from="1609584079252" duration="58062000" />
     </task>
     <servers />
   </component>

@@ -1,20 +1,56 @@
-<div class="form-row">
+<fieldset>
 	<div class="form-row">
+		<div class="form-group col-md-12">
+			<label class="col-form-label" for="headline">Headline for your apartment:</label>
+			<input type="text" class="form-control" id="headline" name="headline" value="">
+		</div>
 		<div class="form-group col-md-6">
-			<label for="address">Address</label>
+			<label class="col-form-label" for="address">Address</label>
 			<input type="text" class="form-control" id="address" name="address" value="{{apartment.address}}">
 		</div>
 		<div class="form-group col-md-6">
-			<label for="city">City</label>
+			<label class="col-form-label" for="city">City</label>
 			<input type="text" class="form-control" id="city" name="city" value="{{apartment.city}}">
 		</div>
 		<div class="form-group col-md-6">
-			<label for="country">Country</label>
+			<label class="col-form-label" for="country">Country</label>
 			<input type="text" class="form-control" id="country" name="country" value="{{apartment.country}}">
 		</div>
 		<div class="form-group col-md-6">
-			<label for="zipCode">Zip</label>
+			<label class="col-form-label" for="zipCode">Zip</label>
 			<input type="text" class="form-control" id="zipCode" name="zipCode" value="{{apartment.zipCode}}">
 		</div>
+		<div class="form-group col-md-12">
+			<label class="col-form-label" for="text">Text for your apartment:</label>
+			<textarea class="form-control" id="text" rows="5" name="text" value=""></textarea>
+		</div>
 		{{> apartmentPics }}
+		<div class="form-group col-md-6">
+			<legend>Facilities</legend>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="wifi" name="wifi" value="true">
+				<label class="custom-control-label" for="wifi">WiFi</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="tv" name="tv" value="true">
+				<label class="custom-control-label" for="tv">TV</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="washer" name="washer" value="true">
+				<label class="custom-control-label" for="washer">Washer</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="dryer" name="dryer" value="true">
+				<label class="custom-control-label" for="dryer">Dryer</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="dishwasher" name="dishwasher" value="true">
+				<label class="custom-control-label" for="dishwasher">Dishwasher</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="parkinglot" name="parkinglot" value="true">
+				<label class="custom-control-label" for="parkinglot">Parkinglot</label>
+			</div>
+		</div>
 	</div>
+</fieldset>

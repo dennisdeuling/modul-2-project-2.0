@@ -43,6 +43,14 @@ const apartmentSchema = new Schema({
 	},
 	images: {
 		path: [String]
+	},
+	facilities: {
+		wifi: Boolean,
+		tv: Boolean,
+		washer: Boolean,
+		dryer: Boolean,
+		dishwasher: Boolean,
+		parkinglot: Boolean
 	}
 }, {
 	timestamps: true
