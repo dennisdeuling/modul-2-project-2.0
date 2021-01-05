@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {uploadSingle} = require('../configs/upload-pics-single.config');
+const {uploadArray} = require('../configs/upload-pics-array.config');
 const {checkAuthenticated} = require('../configs/passport.config');
 const User = require('../models/User.model');
 
@@ -16,12 +16,19 @@ router.get('/signup', (req, res, next) => {
 	res.render('users/signup');
 });
 
-router.post('/signup', uploadSingle, (req, res, next) => {
+router.post('/signup', uploadArray, (req, res, next) => {
 	const {email, password} = req.body;
-	// const profilePic = req.file.path.replace('public\/', '');
+	const uploadedPic = [];
+	req.files.forEach(pics => {
+		if (pics.path) {
+			pics.path = pics.path.replace('public\/', '');
+			console.log('in function: ', pics.path);
+			uploadedPic.push(pics.path);
+		}
+	});
 
-	if (!email || !password) {
-		res.locals.error_msg.push('Username and Password are required!');
+	if (!email || !password || uploadedPic == 0) {
+		res.locals.error_msg.push('Username, Password and a Profile Pic is required!');
 		res.render('users/signup');
 	}
 
@@ -43,7 +50,7 @@ router.post('/signup', uploadSingle, (req, res, next) => {
 							return User.create({
 								email,
 								passwordHash: hashedPassword
-								//profilePic: profilePic
+								// profilePic: uploadedPic[0]
 							});
 						})
 						.then(userFromDB => {

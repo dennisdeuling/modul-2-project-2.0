@@ -61,8 +61,14 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 	let data = {};
 	const uploadedPics = [];
 	req.files.forEach(pics => {
-		uploadedPics.push(pics.path);
+		if (pics.path) {
+			pics.path = pics.path.replace('public\/', '');
+			console.log('in function: ', pics.path);
+			uploadedPics.push(pics.path);
+		}
 	});
+
+	console.log('Array: ', uploadedPics);
 
 	const getCoordinates = async () => {
 		const response = await fetch(encodeURI(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}+${zipCode}+${city}+${country}&key=${process.env.GOOGLE_MAPS_API_KEY}`));
