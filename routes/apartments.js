@@ -98,7 +98,15 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 					dryer: req.body.dryer || false,
 					dishwasher: req.body.dishwasher || false,
 					parkinglot: req.body.parkinglot || false
-				}
+				},
+				rooms: {
+					bedrooms: req.body.bedrooms,
+					livingrooms: req.body.livingrooms,
+					bathrooms: req.body.bathrooms,
+					kitchens: req.body.kitchens
+				},
+				guests: req.body.guests,
+				price: req.body.price
 			};
 		})
 		.then(() => {

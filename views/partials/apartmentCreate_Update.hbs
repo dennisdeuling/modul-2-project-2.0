@@ -20,6 +20,26 @@
 			<label class="col-form-label" for="zipCode">Zip</label>
 			<input type="text" class="form-control" id="zipCode" name="zipCode" value="{{apartment.zipCode}}">
 		</div>
+		<div class="form-group col-md-3">
+			<label class="col-form-label" for="bedrooms">Bed rooms</label>
+			<input type="number" class="form-control" id="bedrooms" name="bedrooms"
+				   value="{{apartment.rooms.bedrooms}}">
+		</div>
+		<div class="form-group col-md-3">
+			<label class="col-form-label" for="livingrooms">Living rooms</label>
+			<input type="number" class="form-control" id="livingrooms" name="livingrooms"
+				   value="{{apartment.rooms.livingrooms}}">
+		</div>
+		<div class="form-group col-md-3">
+			<label class="col-form-label" for="bathrooms">Bath rooms</label>
+			<input type="number" class="form-control" id="bathrooms" name="bathrooms"
+				   value="{{apartment.rooms.bathrooms}}">
+		</div>
+		<div class="form-group col-md-3">
+			<label class="col-form-label" for="kitchens">Kitchens</label>
+			<input type="number" class="form-control" id="kitchens" name="kitchens"
+				   value="{{apartment.rooms.kitchens}}">
+		</div>
 		<div class="form-group col-md-12">
 			<label class="col-form-label" for="text">Text for your apartment:</label>
 			<textarea class="form-control" id="text" rows="5" name="text" value=""></textarea>
@@ -51,6 +71,14 @@
 				<input type="checkbox" class="custom-control-input" id="parkinglot" name="parkinglot" value="true">
 				<label class="custom-control-label" for="parkinglot">Parkinglot</label>
 			</div>
+		</div>
+		<div class="form-group col-md-6">
+			<label class="col-form-label" for="guests">How many guests:</label>
+			<input type="number" class="form-control" id="guests" name="guests" value="{{apartment.guests}}">
+		</div>
+		<div class="form-group col-md-6">
+			<label class="col-form-label" for="price">How much is the price for one night:</label>
+			<input type="number" class="form-control" id="price" name="price" value="{{apartment.price}}">
 		</div>
 	</div>
 </fieldset>

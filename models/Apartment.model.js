@@ -61,6 +61,32 @@ const apartmentSchema = new Schema({
 		dryer: Boolean,
 		dishwasher: Boolean,
 		parkinglot: Boolean
+	},
+	rooms: {
+		bedrooms: {
+			type: Number
+			// required: true
+		},
+		livingrooms: {
+			type: Number
+			// required: true
+		},
+		bathrooms: {
+			type: Number
+			// required: true
+		},
+		kitchens: {
+			type: Number
+			// required: true
+		}
+	},
+	guests: {
+		type: Number
+		// required: true
+	},
+	price: {
+		type: Number
+		// required true
 	}
 }, {
 	timestamps: true
