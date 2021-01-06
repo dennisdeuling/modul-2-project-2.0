@@ -2,6 +2,16 @@ const mongoose = require('mongoose');
 const {Schema, model} = mongoose;
 
 const apartmentSchema = new Schema({
+	headline: {
+		type: String,
+		// required: true,
+		trim: true
+	},
+	text: {
+		type: String,
+		// required: true,
+		trim: true
+	},
 	city: {
 		type: String,
 		required: true,

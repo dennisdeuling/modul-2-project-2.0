@@ -3,6 +3,8 @@ const database = require('../configs/db.config');
 const Apartment = require('../models/Apartment.model');
 
 const apartments = [{
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Berlin',
 	address: 'Berlinstraße',
 	zipCode: '12345',
@@ -20,8 +22,18 @@ const apartments = [{
 			'/uploads/dev-uploads/Berlin/15588244039635_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588244069717_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588246150271_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Amsterdam',
 	address: 'Amsterdamstreet',
 	zipCode: '12345',
@@ -39,8 +51,18 @@ const apartments = [{
 			'/uploads/dev-uploads/Amsterdam/13964496355366_large.jpg',
 			'/uploads/dev-uploads/Amsterdam/13964496945691_large.jpg',
 			'/uploads/dev-uploads/Amsterdam/13964497857207_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Paris',
 	address: 'Parisstreet',
 	zipCode: '12345',
@@ -58,8 +80,18 @@ const apartments = [{
 			'/uploads/dev-uploads/Paris/14349081872736_large.jpg',
 			'/uploads/dev-uploads/Paris/14349086699575_large.jpg',
 			'/uploads/dev-uploads/Paris/14349093216538_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'London',
 	address: 'Londonstreet',
 	zipCode: '12345',
@@ -77,8 +109,18 @@ const apartments = [{
 			'/uploads/dev-uploads/London/15529124016436_large.jpg',
 			'/uploads/dev-uploads/London/15529125322423_large.jpg',
 			'/uploads/dev-uploads/London/15529128216073_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Rom',
 	address: 'Romstreet',
 	zipCode: '12345',
@@ -96,8 +138,18 @@ const apartments = [{
 			'/uploads/dev-uploads/Berlin/15588244039635_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588244069717_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588246150271_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Warschau',
 	address: 'Warschaustraße',
 	zipCode: '12345',
@@ -115,8 +167,18 @@ const apartments = [{
 			'/uploads/dev-uploads/Amsterdam/13964496355366_large.jpg',
 			'/uploads/dev-uploads/Amsterdam/13964496945691_large.jpg',
 			'/uploads/dev-uploads/Amsterdam/13964497857207_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Oslo',
 	address: 'Oslostreet',
 	zipCode: '12345',
@@ -134,8 +196,18 @@ const apartments = [{
 			'/uploads/dev-uploads/Paris/14349081872736_large.jpg',
 			'/uploads/dev-uploads/Paris/14349086699575_large.jpg',
 			'/uploads/dev-uploads/Paris/14349093216538_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Lisbon',
 	address: 'Lisbonstreet',
 	zipCode: '12345',
@@ -153,8 +225,18 @@ const apartments = [{
 			'/uploads/dev-uploads/London/15529124016436_large.jpg',
 			'/uploads/dev-uploads/London/15529125322423_large.jpg',
 			'/uploads/dev-uploads/London/15529128216073_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Madrid',
 	address: 'Madridstreet',
 	zipCode: '12345',
@@ -172,8 +254,18 @@ const apartments = [{
 			'/uploads/dev-uploads/Berlin/15588244039635_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588244069717_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588246150271_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }, {
+	headline: 'Lorem ipsum dolor sit amet, consetetur sadipscing',
+	text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.',
 	city: 'Berlin',
 	address: 'Musterstraße',
 	zipCode: '12345',
@@ -191,6 +283,14 @@ const apartments = [{
 			'/uploads/dev-uploads/Berlin/15588244039635_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588244069717_large.jpg',
 			'/uploads/dev-uploads/Berlin/15588246150271_large.jpg']
+	},
+	facilities: {
+		wifi: true,
+		tv: true,
+		washer: true,
+		dryer: false,
+		dishwasher: false,
+		parkinglot: false
 	}
 }];
 

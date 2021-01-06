@@ -78,11 +78,13 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 	getCoordinates()
 		.then(response => {
 			data = {
+				headline: req.body.headline,
 				address: req.body.address,
 				zipCode: req.body.zipCode,
 				city: req.body.city,
 				country: req.body.country,
 				userId: req.session.passport.user,
+				text: req.body.text,
 				location: {
 					coordinates: response
 				},

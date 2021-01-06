@@ -1,17 +1,19 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h1>My Headline</h1>
+			<h1>{{apartment.headline}}</h1>
 			<h6>{{apartment.city}}, {{apartment.address}}</h6>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col">
-			<img src="{{apartment.images.path.[0]}}" class="rounded img-fluid" alt="...">
-			<img src="{{apartment.images.path.[1]}}" class="rounded img-fluid" alt="Responsive image">
-			<img src="{{apartment.images.path.[2]}}" class="rounded img-fluid" alt="Responsive image">
-			<img src="{{apartment.images.path.[3]}}" class="rounded img-fluid" alt="Responsive image">
-			<img src="{{apartment.images.path.[4]}}" class="rounded img-fluid" alt="Responsive image">
+		<div class="col detail-view-pics-big">
+			<img src="{{apartment.images.path.[0]}}" class="rounded img-fluid image-1" alt="...">
+			<div class="detail-view-pics-little">
+				<img src="{{apartment.images.path.[1]}}" class="rounded img-fluid image-2" alt="Responsive image">
+				<img src="{{apartment.images.path.[2]}}" class="rounded img-fluid image-3" alt="Responsive image">
+				<img src="{{apartment.images.path.[3]}}" class="rounded img-fluid image-4" alt="Responsive image">
+				<img src="{{apartment.images.path.[4]}}" class="rounded img-fluid image-5" alt="Responsive image">
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -34,7 +36,7 @@
 	</div>
 	<div class="row">
 		<div class="col">
-			<p>My Text for this apartment</p>
+			<p>{{apartment.text}}</p>
 		</div>
 	</div>
 </div>
