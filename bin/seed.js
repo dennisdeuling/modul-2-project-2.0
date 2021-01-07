@@ -235,7 +235,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff4441eb5c7b977e14566c0',
 	coordinates: [59.911491, 10.757933],
 	images: {
 		path: [
