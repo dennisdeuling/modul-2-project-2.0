@@ -124,7 +124,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff4441eb5c7b977e14566c0',
 	coordinates: [51.50853, -0.12574],
 	images: {
 		path: [
@@ -161,7 +161,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff4441eb5c7b977e14566c0',
 	coordinates: [41.9027835, 12.4963655],
 	images: {
 		path: [
@@ -198,7 +198,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff4441eb5c7b977e14566c0',
 	coordinates: [52.237049, 21.017532],
 	images: {
 		path: [
@@ -272,7 +272,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff4441eb5c7b977e14566c0',
 	coordinates: [38.71667, -9.13333],
 	images: {
 		path: [
@@ -309,7 +309,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff4441eb5c7b977e14566c0',
 	coordinates: [40.416775, -3.703790],
 	images: {
 		path: [
@@ -346,7 +346,7 @@ const apartments = [{
 		checkin: '2021-01-03',
 		checkout: '2021-01-06'
 	},
-	userId: 802340389,
+	userId: '5ff4441eb5c7b977e14566c0',
 	coordinates: [52.520008, 13.404954],
 	images: {
 		path: [

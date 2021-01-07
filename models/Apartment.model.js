@@ -37,7 +37,8 @@ const apartmentSchema = new Schema({
 		checkout: [String]
 	},
 	userId: {
-		type: String
+		type: Schema.Types.ObjectId,
+		ref: 'User'
 		// required: true
 	},
 	location: {

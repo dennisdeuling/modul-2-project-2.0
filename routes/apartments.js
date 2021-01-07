@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const {uploadArray} = require('../configs/upload-pics-array.config');
 const {checkAuthenticated} = require('../configs/passport.config');
 const Apartment = require('../models/Apartment.model');
+const User = require('../models/User.model');
 
 
 router.get('/', (req, res, next) => {
@@ -127,6 +128,7 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 router.get('/apartment/:id', (req, res, next) => {
 
 	Apartment.findById(req.params.id)
+		.populate('userId')
 		.then(apartment => {
 			console.log('Apartment-Detail: ', apartment);
 			res.render('apartments/apartment-detail', {apartment});

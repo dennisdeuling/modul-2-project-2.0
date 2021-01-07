@@ -7,6 +7,27 @@ a {
 	color: #00B7FF;
 }
 
+
+/* index view */
+
+
+.card {
+	height: 650px;
+	margin: 10px 10px 0px 10px;
+}
+
+.card-img-top {
+	height: 250px;
+	width: auto;
+	margin: 5px 0px 5px 0px;
+}
+
+.card-subtitle {
+	height: 1px;
+	width: auto;
+}
+
+/* detail view */
 .detail-view-pics-left {
 	display: flex;
 	justify-content: flex-start;

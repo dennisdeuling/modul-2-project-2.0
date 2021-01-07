@@ -18,18 +18,33 @@
 	</div>
 	<div class="row">
 		<div class="col">
-			<h3>Meine Wohnung: Gastgeber</h3>
-			<h6>Rooms</h6>
+			<h3>Gastgeber: {{apartment.userId.email}}</h3>
+			<h6>{{apartment.rooms.bedrooms}} Bedrooms, {{apartment.rooms.livingrooms}}
+				Livingrooms, {{apartment.rooms.bathrooms}} Bathrooms, {{apartment.rooms.kitchens}} Kitchen</h6>
 			<hr>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col">
 			<ul>
-				<li>Ausstattung</li>
-				<li>Ausstattung</li>
-				<li>Ausstattung</li>
-				<li>Ausstattung</li>
+				{{#if apartment.facilities.wifi}}
+					<li>WiFi</li>
+				{{/if}}
+				{{#if apartment.facilities.tv}}
+					<li>TV</li>
+				{{/if}}
+				{{#if apartment.facilities.washer}}
+					<li>Washer</li>
+				{{/if}}
+				{{#if apartment.facilities.dryer}}
+					<li>Dryer</li>
+				{{/if}}
+				{{#if apartment.facilities.dishwasher}}
+					<li>Dishwasher</li>
+				{{/if}}
+				{{#if apartment.facilities.parkinglot}}
+					<li>Parkinglot</li>
+				{{/if}}
 			</ul>
 			<hr>
 		</div>
