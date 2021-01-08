@@ -12,10 +12,14 @@
 			</li>
 
 			<form class="form-inline my-2 my-lg-0" action="/search" method="get">
-				<input class="form-control mr-sm-2" type="search" placeholder="City" id="city" name="city">
-				<input class="form-control mr-sm-2" type="date" placeholder="Check-In" id="checkin" name="checkin">
-				<input class="form-control mr-sm-2" type="date" placeholder="Check-Out" id="checkout" name="checkout">
-				<input class="form-control mr-sm-2" type="number" placeholder="Guests" id="guests" name="guests">
+				<input class="form-control mr-sm-2" type="search" placeholder="City" id="city" name="city"
+					   value="{{city}}">
+				<input class="form-control mr-sm-2" type="date" placeholder="Check-In" id="checkin" name="checkin"
+					   value="{{checkin}}">
+				<input class="form-control mr-sm-2" type="date" placeholder="Check-Out" id="checkout" name="checkout"
+					   value="{{checkout}}">
+				<input class="form-control mr-sm-2" type="number" placeholder="Guests" id="guests" name="guests"
+					   value="{{req.query.guests}}">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<ul class="navbar-nav mr-auto">

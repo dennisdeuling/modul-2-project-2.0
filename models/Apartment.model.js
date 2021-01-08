@@ -32,9 +32,10 @@ const apartmentSchema = new Schema({
 		required: true,
 		trim: true
 	},
-	booked: {
-		checkin: [String],
-		checkout: [String]
+	booking: {
+		type: Schema.Types.ObjectId,
+		ref: 'Booking'
+		// required: true
 	},
 	userId: {
 		type: Schema.Types.ObjectId,

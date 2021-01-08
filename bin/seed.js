@@ -9,10 +9,6 @@ const apartments = [{
 	address: 'Berlinstraße',
 	zipCode: '12345',
 	country: 'Germany',
-	booked: {
-		checkin: ['2021-01-03', '2021-01-03', '2021-01-03'],
-		checkout: ['2021-01-06', '2021-01-06', '2021-01-06']
-	},
 	userId: '5ff44349728eb77741a51888',
 	location: {
 		coordinates: [52.520008, 13.404954]
@@ -48,10 +44,6 @@ const apartments = [{
 	address: 'Amsterdamstreet',
 	zipCode: '12345',
 	country: 'Neverland',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff44349728eb77741a51888',
 	location: {
 		coordinates: [52.377956, 4.897070]
@@ -87,10 +79,6 @@ const apartments = [{
 	address: 'Parisstreet',
 	zipCode: '12345',
 	country: 'France',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff44349728eb77741a51888',
 	location: {
 		coordinates: [48.864716, 2.349014]
@@ -126,10 +114,6 @@ const apartments = [{
 	address: 'Londonstreet',
 	zipCode: '12345',
 	country: 'England',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff4441eb5c7b977e14566c0',
 	location: {
 		coordinates: [51.50853, -0.12574]
@@ -165,10 +149,6 @@ const apartments = [{
 	address: 'Romstreet',
 	zipCode: '12345',
 	country: 'Italy',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff4441eb5c7b977e14566c0',
 	location: {
 		coordinates: [41.9027835, 12.4963655]
@@ -204,10 +184,6 @@ const apartments = [{
 	address: 'Warschaustraße',
 	zipCode: '12345',
 	country: 'Poland',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff4441eb5c7b977e14566c0',
 	location: {
 		coordinates: [52.237049, 21.017532]
@@ -243,10 +219,6 @@ const apartments = [{
 	address: 'Oslostreet',
 	zipCode: '12345',
 	country: 'Norwegian',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff4441eb5c7b977e14566c0',
 	location: {
 		coordinates: [59.911491, 10.757933]
@@ -282,10 +254,6 @@ const apartments = [{
 	address: 'Lisbonstreet',
 	zipCode: '12345',
 	country: 'Portugal',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff4441eb5c7b977e14566c0',
 	location: {
 		coordinates: [38.71667, -9.13333]
@@ -321,10 +289,6 @@ const apartments = [{
 	address: 'Madridstreet',
 	zipCode: '12345',
 	country: 'Spain',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff4441eb5c7b977e14566c0',
 	location: {
 		coordinates: [40.416775, -3.703790]
@@ -360,10 +324,6 @@ const apartments = [{
 	address: 'Musterstraße',
 	zipCode: '12345',
 	country: 'My Own Country',
-	booked: {
-		checkin: '2021-01-03',
-		checkout: '2021-01-06'
-	},
 	userId: '5ff4441eb5c7b977e14566c0',
 	location: {
 		coordinates: [52.520008, 13.404954]

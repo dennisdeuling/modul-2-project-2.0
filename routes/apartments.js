@@ -5,6 +5,7 @@ const {uploadArray} = require('../configs/upload-pics-array.config');
 const {checkAuthenticated} = require('../configs/passport.config');
 const Apartment = require('../models/Apartment.model');
 const User = require('../models/User.model');
+const Booking = require('../models/Booking.model');
 
 
 router.get('/', (req, res, next) => {
@@ -43,11 +44,15 @@ router.get('/search', (req, res, next) => {
 		query = {$and: dataQuery};
 	}
 
+	console.log('local vars: ', res.locals);
 	Apartment
-		.find(query)
-		.then(apartment => {
-			console.log(apartment);
-			res.render('apartments/apartments-searchResults', {apartment});
+		.find({city})
+		.populate('booking')
+		.populate('userId')
+		// .find(query)
+		.then(apartments => {
+			console.log(apartments);
+			res.render('apartments/apartments-list', {apartments});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -139,10 +144,28 @@ router.get('/apartment/:id', (req, res, next) => {
 });
 
 router.post('/apartment/:id/book', (req, res, next) => {
-	Apartment.findById(req.params.id)
-		.then(apartment => {
-			// console.log(apartment);
-			res.render('apartments/apartment-detail', {apartment});
+
+	const data = {
+		userId: req.user.id,
+		apartmentId: req.params.id,
+		checkin: req.body.checkin,
+		checkout: req.body.checkout
+	};
+
+	Booking.create(data)
+		.then(booking => {
+			console.log(booking);
+
+			Apartment.findByIdAndUpdate(data.apartmentId, {booking: booking.id}, {new: true})
+				.then(apartmentNew => {
+					// console.log(`Updated apartment: ${apartmentNew}`);
+					req.flash('success_msg', `You have booked this apartment from ${booking.checkin} to ${booking.checkout}.`);
+					res.redirect(`/apartment/${req.params.id}`);
+				})
+				.catch(error => {
+					console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+				});
+
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -176,18 +199,6 @@ router.post('/apartment/:id/edit', checkAuthenticated, (req, res, next) => {
 		.then(apartmentNew => {
 			// console.log(`Updated apartment: ${apartmentNew}`);
 			res.redirect(`/apartment/${req.params.id}`);
-		})
-		.catch(error => {
-			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
-		});
-});
-
-router.get('/my-apartments', checkAuthenticated, (req, res, next) => {
-	const userId = req.session.passport.user;
-	Apartment.find({userId: userId})
-		.then(apartments => {
-			// console.log(apartments);
-			res.render('apartments/my-apartments', {apartments});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
