@@ -365,18 +365,38 @@ const apartments = [{
 	price: 50
 }];
 
+const userApartments1 = [
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a4'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a6'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a5'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a7')
+];
+
+const userApartments2 = [
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a8'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a9'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4aa'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4ab'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a3'),
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4ac'),
+	new mongoose.mongo.ObjectId('5ff44349728eb77741a51888')
+];
+
+
 const user = [{
 	_id: new mongoose.mongo.ObjectId('5ff44349728eb77741a51888'),
 	email: 'bob@bob.de',
 	passwordHash: '1234',
 	profilePic: '/uploads/dev-uploads/profile-pics/IMG_1508.jpeg',
-	name: 'bob'
+	name: 'bob',
+	apartments: userApartments1
 }, {
 	_id: new mongoose.mongo.ObjectId('5ff4441eb5c7b977e14566c0'),
 	email: 'dennis@dennis.de',
 	passwordHash: '1234',
 	profilePic: '/uploads/dev-uploads/profile-pics/IMG_1508.jpeg',
-	name: 'Dennis'
+	name: 'Dennis',
+	apartments: userApartments2
 }];
 
 Apartment.create(apartments)

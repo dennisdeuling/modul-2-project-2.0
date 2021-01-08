@@ -21,6 +21,11 @@ const userSchema = new Schema({
 	name: {
 		type: String
 		// required: true
+	},
+	apartments: {
+		type: [Schema.Types.ObjectId],
+		ref: 'Apartment'
+		// required: true
 	}
 }, {
 	timestamps: true

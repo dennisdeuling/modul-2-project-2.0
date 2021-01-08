@@ -51,6 +51,7 @@ router.get('/apartment/create', checkAuthenticated, (req, res, next) => {
 });
 
 router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, next) => {
+	const userId = req.session.passport.user;
 	let data = {};
 	const uploadedPics = [];
 	req.files.forEach(pics => {
@@ -106,7 +107,13 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 			Apartment.create(data)
 				.then(apartment => {
 					console.log(apartment);
-					res.render('apartments/apartment-detail', {apartment});
+					User.findByIdAndUpdate(data.userId, {$push: {apartments: apartment.id}}, {new: true})
+						.then(user => {
+							res.render('apartments/apartment-detail', {apartment});
+						})
+						.catch(error => {
+							console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+						});
 				})
 				.catch(error => {
 					console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
