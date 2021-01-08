@@ -125,7 +125,7 @@ router.get('/apartment/:id', (req, res, next) => {
 		.populate('userId')
 		.then(apartment => {
 			console.log('Apartment-Detail: ', apartment);
-			res.render('apartments/apartment-detail', {apartment, session});
+			res.render('apartments/apartment-detail', {apartment});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);

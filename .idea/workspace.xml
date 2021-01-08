@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55315dd1-d647-47af-9b71-51ae7c5d7903" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/partials/userSignupEditForm.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users/edit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/seed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/session.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/session.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/apartments/apartment-detail.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartment-detail.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/apartments/apartments-list.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apartments/apartments-list.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/partials/buttonBook.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/buttonBook.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/buttonDelete.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/buttonEditDetails.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/navigation.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/navigation.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/slider.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/users/dashboard.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/dashboard.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/users/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/signup.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +77,7 @@
       <workItem from="1608996140182" duration="3728000" />
       <workItem from="1609584004952" duration="52000" />
       <workItem from="1609584079252" duration="89713000" />
-      <workItem from="1610097355715" duration="26410000" />
+      <workItem from="1610097355715" duration="27433000" />
     </task>
     <servers />
   </component>

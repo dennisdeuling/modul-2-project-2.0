@@ -1,7 +1,5 @@
-<form class="form-inline my-2 my-lg-0" action="/apartment/{{this.id}}/book" method="post">
-	<input class="form-control mr-sm-2" type="date" placeholder="Check-In" id="checkin" name="checkin"
-		   value="{{session.checkin}}">
-	<input class="form-control mr-sm-2" type="date" placeholder="Check-Out" id="checkout" name="checkout"
-		   value="{{session.checkout}}">
+<form class="form-inline my-2 my-lg-0" action="/apartment/{{this._id}}/book" method="post">
+	<input class="form-control mr-sm-2" type="date" placeholder="Check-In" id="checkin" name="checkin">
+	<input class="form-control mr-sm-2" type="date" placeholder="Check-Out" id="checkout" name="checkout">
 	<button class="btn btn-secondary my-2 my-sm-0" type="submit" class="btn btn-primary">Book</button>
 </form>
