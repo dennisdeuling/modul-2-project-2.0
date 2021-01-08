@@ -69,7 +69,7 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 	});
 
 	const getCoordinates = async () => {
-		const response = await fetch(encodeURI(`https://maps.googleapis.com/maps/api/geocode/json?address=${req.body.address}+${req.body.zipCode}+${req.body.city}+${req.body.country}&key=${process.env.GOOGLE_MAPS_API_KEY}`));
+		const response = await fetch(encodeURI(`https://maps.googleapis.com/maps/api/geocode/json?address=${req.body.address}+${req.body.zipCode}+${req.body.city}+${req.body.country}&key=${process.env.GOOGLE_GEOCODING_API}`));
 		const data = await response.json();
 		const location = data.results[0].geometry.location;
 		const coordinates = [location.lat, location.lng];

@@ -14,7 +14,9 @@ const apartments = [{
 		checkout: ['2021-01-06', '2021-01-06', '2021-01-06']
 	},
 	userId: '5ff44349728eb77741a51888',
-	coordinates: [52.520008, 13.404954],
+	location: {
+		coordinates: [52.520008, 13.404954]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Berlin/15588243350711_large.jpg',
@@ -51,7 +53,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff44349728eb77741a51888',
-	coordinates: [52.377956, 4.897070],
+	location: {
+		coordinates: [52.377956, 4.897070]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Amsterdam/13964494798044_large.jpg',
@@ -88,7 +92,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff44349728eb77741a51888',
-	coordinates: [48.864716, 2.349014],
+	location: {
+		coordinates: [48.864716, 2.349014]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Paris/143490862897_large.jpg',
@@ -125,7 +131,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff4441eb5c7b977e14566c0',
-	coordinates: [51.50853, -0.12574],
+	location: {
+		coordinates: [51.50853, -0.12574]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/London/15038236696554_large.jpg',
@@ -162,7 +170,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff4441eb5c7b977e14566c0',
-	coordinates: [41.9027835, 12.4963655],
+	location: {
+		coordinates: [41.9027835, 12.4963655]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Berlin/15588243350711_large.jpg',
@@ -199,7 +209,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff4441eb5c7b977e14566c0',
-	coordinates: [52.237049, 21.017532],
+	location: {
+		coordinates: [52.237049, 21.017532]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Amsterdam/13964494798044_large.jpg',
@@ -236,7 +248,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff4441eb5c7b977e14566c0',
-	coordinates: [59.911491, 10.757933],
+	location: {
+		coordinates: [59.911491, 10.757933]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Paris/143490862897_large.jpg',
@@ -273,7 +287,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff4441eb5c7b977e14566c0',
-	coordinates: [38.71667, -9.13333],
+	location: {
+		coordinates: [38.71667, -9.13333]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/London/15038236696554_large.jpg',
@@ -310,7 +326,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff4441eb5c7b977e14566c0',
-	coordinates: [40.416775, -3.703790],
+	location: {
+		coordinates: [40.416775, -3.703790]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Berlin/15588243350711_large.jpg',
@@ -347,7 +365,9 @@ const apartments = [{
 		checkout: '2021-01-06'
 	},
 	userId: '5ff4441eb5c7b977e14566c0',
-	coordinates: [52.520008, 13.404954],
+	location: {
+		coordinates: [52.520008, 13.404954]
+	},
 	images: {
 		path: [
 			'/uploads/dev-uploads/Berlin/15588243350711_large.jpg',

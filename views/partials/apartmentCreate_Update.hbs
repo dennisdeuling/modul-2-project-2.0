@@ -2,7 +2,7 @@
 	<div class="form-row">
 		<div class="form-group col-md-12">
 			<label class="col-form-label" for="headline">Headline for your apartment:</label>
-			<input type="text" class="form-control" id="headline" name="headline" value="">
+			<input type="text" class="form-control" id="headline" name="headline" value="{{apartment.headline}}">
 		</div>
 		<div class="form-group col-md-6">
 			<label class="col-form-label" for="address">Address</label>
@@ -42,33 +42,39 @@
 		</div>
 		<div class="form-group col-md-12">
 			<label class="col-form-label" for="text">Text for your apartment:</label>
-			<textarea class="form-control" id="text" rows="5" name="text" value=""></textarea>
+			<textarea class="form-control" id="text" rows="10" name="text">{{apartment.text}}</textarea>
 		</div>
 		{{> apartmentPics }}
 		<div class="form-group col-md-6">
 			<legend>Facilities</legend>
 			<div class="custom-control custom-checkbox">
-				<input type="checkbox" class="custom-control-input" id="wifi" name="wifi" value="true">
+				<input type="checkbox" class="custom-control-input" id="wifi" name="wifi" value="true"
+					   {{#if apartment.facilities.wifi}}checked{{/if}}>
 				<label class="custom-control-label" for="wifi">WiFi</label>
 			</div>
 			<div class="custom-control custom-checkbox">
-				<input type="checkbox" class="custom-control-input" id="tv" name="tv" value="true">
+				<input type="checkbox" class="custom-control-input" id="tv" name="tv" value="true"
+					   {{#if apartment.facilities.tv}}checked{{/if}}>
 				<label class="custom-control-label" for="tv">TV</label>
 			</div>
 			<div class="custom-control custom-checkbox">
-				<input type="checkbox" class="custom-control-input" id="washer" name="washer" value="true">
+				<input type="checkbox" class="custom-control-input" id="washer" name="washer" value="true"
+					   {{#if apartment.facilities.washer}}checked{{/if}}>
 				<label class="custom-control-label" for="washer">Washer</label>
 			</div>
 			<div class="custom-control custom-checkbox">
-				<input type="checkbox" class="custom-control-input" id="dryer" name="dryer" value="true">
+				<input type="checkbox" class="custom-control-input" id="dryer" name="dryer" value="true"
+					   {{#if apartment.facilities.dryer}}checked{{/if}}>
 				<label class="custom-control-label" for="dryer">Dryer</label>
 			</div>
 			<div class="custom-control custom-checkbox">
-				<input type="checkbox" class="custom-control-input" id="dishwasher" name="dishwasher" value="true">
+				<input type="checkbox" class="custom-control-input" id="dishwasher" name="dishwasher" value="true"
+					   {{#if apartment.facilities.dishwasher}}checked{{/if}}>
 				<label class="custom-control-label" for="dishwasher">Dishwasher</label>
 			</div>
 			<div class="custom-control custom-checkbox">
-				<input type="checkbox" class="custom-control-input" id="parkinglot" name="parkinglot" value="true">
+				<input type="checkbox" class="custom-control-input" id="parkinglot" name="parkinglot" value="true"
+					   {{#if apartment.facilities.parkinglot}}checked{{/if}}>
 				<label class="custom-control-label" for="parkinglot">Parkinglot</label>
 			</div>
 		</div>
