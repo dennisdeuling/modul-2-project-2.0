@@ -21,35 +21,16 @@ router.get('/', (req, res, next) => {
 
 router.get('/search', (req, res, next) => {
 	const {city, checkin, checkout, guests} = req.query;
-	const dataQuery = [];
-	let query;
+	let dataQuery;
 
-	if (city) {
-		dataQuery.push({city: city});
-	}
-	if (checkin) {
-		dataQuery.push({'booked.checkin': {$gt: [checkin]}});
-	}
-	if (checkout) {
-		dataQuery.push({'booked.checkout': {$lt: [checkout]}});
-	}
-	/*
-	if (guests) {
-		dataQuery.push({guests: guests});
-	} */
-
-	if (dataQuery.length == 1) {
-		query = dataQuery[0];
-	} else if (dataQuery.length > 1) {
-		query = {$and: dataQuery};
+	if (city || guests || checkin || checkout) {
+		dataQuery = {$or: [{city: city}, {guests: {$gte: guests}}, {'booking.checkin': {$lt: [checkin]}}, {'booking.checkout': {$gt: [checkout]}}]};
 	}
 
-	console.log('local vars: ', res.locals);
 	Apartment
-		.find({city})
+		.find()
 		.populate('booking')
-		.populate('userId')
-		// .find(query)
+		.find(dataQuery)
 		.then(apartments => {
 			console.log(apartments);
 			res.render('apartments/apartments-list', {apartments});
