@@ -83,10 +83,80 @@ router.post('/login', (req, res, next) => {
 router.get('/dashboard', (req, res, next) => {
 	const userId = req.session.passport.user;
 
-	Apartment.find({userId: userId})
+	console.log(req.params.id);
+	Apartment
+		.find({userId: userId})
+		.populate('userId')
+		.populate('booking')
 		.then(apartments => {
 			console.log(apartments);
 			res.render('users/dashboard', {apartments});
+		})
+		.catch(error => {
+			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+		});
+});
+
+router.get('/:id/edit', checkAuthenticated, (req, res, next) => {
+	User.findById(req.params.id)
+		.then(user => {
+			console.log(user);
+			res.render('users/edit', {user});
+		})
+		.catch(error => {
+			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+		});
+});
+
+router.post('/:id/edit', checkAuthenticated, uploadArray, (req, res, next) => {
+	const {email, password} = req.body;
+	const uploadedPic = [];
+	req.files.forEach(pics => {
+		if (pics.path) {
+			pics.path = pics.path.replace('public', '');
+			uploadedPic.push(pics.path);
+		}
+	});
+
+	if (!email || !password || uploadedPic == 0) {
+		res.locals.error_msg.push('Username, Password and a Profile Pic is required!');
+		res.render('users/edit');
+		return;
+	}
+
+	User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+		.then(userFromDB => {
+			bcryptjs
+				.genSalt(saltRounds)
+				.then(salt => {
+					return bcryptjs.hash(password, salt);
+				})
+				.then(hashedPassword => {
+					return User.create({
+						email,
+						passwordHash: hashedPassword,
+						profilePic: uploadedPic[0]
+					});
+				})
+				.then(userFromDB => {
+					req.flash('success_msg', `Your account is updated.`);
+					res.redirect('/dashboard');
+				})
+				.catch(error => {
+					console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+				});
+		})
+		.catch(error => {
+			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+		});
+});
+
+router.post('/:id/delete', (req, res, next) => {
+	User.findByIdAndRemove(req.params.id)
+		.then(apartmentDeleted => {
+			console.log(apartmentDeleted);
+			req.flash('success_msg', `Your account is deleted.`);
+			res.redirect('/');
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);

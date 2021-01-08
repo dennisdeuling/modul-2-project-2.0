@@ -1,34 +1,88 @@
-<h1>My Apartments</h1>
+{{> success_msg}}
+<h1>My Dashboard:</h1>
 
-<table class="table table-striped">
-	<thead>
-	<tr>
-		<th scope="col">City</th>
-		<th scope="col">Address</th>
-		<th scope="col">Price</th>
-		<th scope="col">Details</th>
-		<th scope="col">Edit</th>
-		<th scope="col">Delete</th>
-	</tr>
-	</thead>
-	<tbody>
-	{{#each apartments}}
+<div class="row">
+	<div class="col-2">
+		<img src="{{apartments.[0].userId.profilePic}}" class="float-start profile-pic" alt="...">
+	</div>
+	<div class="col-3 profile-data">
+		<ul class="list-group">
+			<li class="list-group-item">My nickname: {{apartments.[0].userId.name}}</li>
+			<li class="list-group-item">My Email: {{apartments.[0].userId.email}}</li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="col-2 profile-data">
+			<a href="/{{apartments.[0].userId.id}}/edit" class="fas fa-edit btn btn-primary"></a>
+		</div>
+		<div class="col-2 profile-data">
+			<form action="/{{apartments.[0].userId.id}}/delete" method="post">
+				<button type="submit" class="fas fa-trash-alt btn btn-primary"></button>
+			</form>
+		</div>
+	</div>
+</div>
+<hr>
+{{#if apartments}}
+	<h5>My offered apartments:</h5>
+	<table class="table table-striped">
+		<thead>
 		<tr>
-			<td>{{this.city}}</td>
-			<td>{{this.address}}</td>
-			<td>{{this.city}}</td>
-			<td><a href="/apartment/{{this.id}}" class="fas fa-info-circle"></a></td>
-			<td><a href="/apartment/{{this.id}}/edit" class="fas fa-edit"></a></td>
-			<td>
-				<form action="/apartment/{{this.id}}/delete" method="post">
-					<button type="submit" class="fas fa-trash-alt"></button>
-				</form>
-			</td>
+			<th scope="col">City</th>
+			<th scope="col">Address</th>
+			<th scope="col">Price</th>
+			<th scope="col">Details</th>
+			<th scope="col">Edit</th>
+			<th scope="col">Delete</th>
 		</tr>
-	{{/each}}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+		{{#each apartments}}
+			<tr>
+				<td>{{this.city}}</td>
+				<td>{{this.address}}</td>
+				<td>{{this.price}}</td>
+				<td><a href="/apartment/{{this.id}}" class="fas fa-info-circle btn btn-primary"></a></td>
+				<td><a href="/apartment/{{this.id}}/edit" class="fas fa-edit btn btn-primary"></a></td>
+				<td>
+					<form action="/apartment/{{this.id}}/delete" method="post">
+						<button type="submit" class="fas fa-trash-alt btn btn-primary"></button>
+					</form>
+				</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+{{else}}
+	<h5>No apartments to show. Please offer your apartment.</h5>
+{{/if}}
 <a href="/apartment/create" class="btn btn-primary">Create a new Apartment</a>
-
-
+<hr>
+{{#if apartments.booking}}
+	<h5>My booked apartments:</h5>
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th scope="col">City</th>
+			<th scope="col">Price</th>
+			<th scope="col">Checkin</th>
+			<th scope="col">Checkout</th>
+		</tr>
+		</thead>
+		<tbody>
+		{{#each apartments}}
+			{{#if this.booking}}
+				<tr>
+					<td>{{this.city}}</td>
+					<td>{{this.price}}</td>
+					<td>{{this.booking.checkin}}</td>
+					<td>{{this.booking.checkout}}</td>
+				</tr>
+			{{/if}}
+		{{/each}}
+		</tbody>
+	</table>
+{{else}}
+	<h5>You haven't booked an apartment.</h5>
+{{/if}}
 

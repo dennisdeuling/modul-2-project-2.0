@@ -9,9 +9,11 @@ const Booking = require('../models/Booking.model');
 
 
 router.get('/', (req, res, next) => {
+	const session = req.session;
+
 	Apartment.find()
 		.then(apartments => {
-			res.render('apartments/apartments-list', {apartments});
+			res.render('apartments/apartments-list', {apartments, session});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -22,6 +24,9 @@ router.get('/', (req, res, next) => {
 router.get('/search', (req, res, next) => {
 	const {city, checkin, checkout, guests} = req.query;
 	let dataQuery;
+	req.session.checkin = checkin || '';
+	req.session.checkout = checkout || '';
+	const session = req.session;
 
 	if (city || guests || checkin || checkout) {
 		dataQuery = {$or: [{city: city}, {guests: {$gte: guests}}, {'booking.checkin': {$lt: [checkin]}}, {'booking.checkout': {$gt: [checkout]}}]};
@@ -33,7 +38,8 @@ router.get('/search', (req, res, next) => {
 		.find(dataQuery)
 		.then(apartments => {
 			console.log(apartments);
-			res.render('apartments/apartments-list', {apartments});
+			console.log(session);
+			res.render('apartments/apartments-list', {apartments, session});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -112,12 +118,14 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 });
 
 router.get('/apartment/:id', (req, res, next) => {
+	const session = req.session;
+
 
 	Apartment.findById(req.params.id)
 		.populate('userId')
 		.then(apartment => {
 			console.log('Apartment-Detail: ', apartment);
-			res.render('apartments/apartment-detail', {apartment});
+			res.render('apartments/apartment-detail', {apartment, session});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -157,7 +165,7 @@ router.post('/apartment/:id/delete', (req, res, next) => {
 	Apartment.findByIdAndRemove(req.params.id)
 		.then(apartmentDeleted => {
 			console.log(apartmentDeleted);
-			res.redirect('/');
+			res.redirect('/dashboard');
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);

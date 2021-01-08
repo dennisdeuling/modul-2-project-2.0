@@ -71,6 +71,21 @@ a {
 	margin: 5px 10px 10px 0;
 }
 
+.profile-pic {
+	width: 150px;
+	height: 150px;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+}
+
+.profile-data {
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: center;
+}
+
 /* Google Maps */
 #map {
 	width: 100%;

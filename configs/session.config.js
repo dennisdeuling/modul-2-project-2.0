@@ -14,7 +14,11 @@ module.exports = app => {
 			store: new MongoStore({
 				mongooseConnection: mongoose.connection,
 				tl: 60 * 60 * 24 // 1 day
-			})
+			}),
+			booking: {
+				checkin: 'kjfsdlajfl',
+				checkout: 'ksdfjalsökfjl'
+			}
 		})
 	);
 };
