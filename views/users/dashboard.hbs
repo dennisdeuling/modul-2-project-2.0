@@ -13,10 +13,10 @@
 	</div>
 	<div class="row">
 		<div class="col-2 profile-data">
-			<a href="/{{apartments.[0].userId.id}}/edit" class="fas fa-edit btn btn-primary"></a>
+			<a href="/{{dataFromDB.id}}/edit" class="fas fa-edit btn btn-primary"></a>
 		</div>
 		<div class="col-2 profile-data">
-			<form action="/{{apartments.[0].userId.id}}/delete" method="post">
+			<form action="/{{dataFromDB.id}}/delete" method="post">
 				<button type="submit" class="fas fa-trash-alt btn btn-primary"></button>
 			</form>
 		</div>
