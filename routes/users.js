@@ -14,7 +14,7 @@ const saltRounds = 10;
 const passport = require('passport');
 
 router.get('/signup', (req, res, next) => {
-	res.render('users/signup');
+	res.render('users/signup', {loggedIn: res.locals.user});
 });
 
 router.post('/signup', uploadArray, (req, res, next) => {
@@ -70,7 +70,7 @@ router.post('/signup', uploadArray, (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
-	res.render('users/login');
+	res.render('users/login', {loggedIn: res.locals.user});
 });
 
 router.post('/login', (req, res, next) => {
@@ -80,7 +80,7 @@ router.post('/login', (req, res, next) => {
 	})(req, res, next);
 });
 
-router.get('/dashboard', (req, res, next) => {
+router.get('/dashboard', checkAuthenticated, (req, res, next) => {
 	const userId = req.session.passport.user;
 
 	User
@@ -89,34 +89,18 @@ router.get('/dashboard', (req, res, next) => {
 		.populate('booking', '', 'Booking', '')
 		.then(dataFromDB => {
 			console.log(dataFromDB);
-			res.render('users/dashboard', {dataFromDB});
+			res.render('users/dashboard', {dataFromDB, loggedIn: res.locals.user});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
 		});
-
-
-	/*
-	console.log(req.params.id);
-	Apartment
-		.find({userId: userId})
-		.populate('userId')
-		.populate('booking')
-		.then(apartments => {
-			console.log(apartments);
-			res.render('users/dashboard', {apartments});
-		})
-		.catch(error => {
-			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
-		});
-	 */
 });
 
 router.get('/:id/edit', checkAuthenticated, (req, res, next) => {
 	User.findById(req.params.id)
 		.then(user => {
 			console.log(user);
-			res.render('users/edit', {user});
+			res.render('users/edit', {user, loggedIn: res.locals.user});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);

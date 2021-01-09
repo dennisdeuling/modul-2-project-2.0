@@ -37,7 +37,7 @@ module.exports = passport => {
 	});
 };
 
-const checkAuthenticated = (req, res, next) => {
+module.exports.checkAuthenticated = (req, res, next) => {
 	const isAuthenticated = req.isAuthenticated();
 	if (isAuthenticated) {
 		next();
@@ -45,5 +45,3 @@ const checkAuthenticated = (req, res, next) => {
 		res.redirect('/login');
 	}
 };
-
-module.exports.checkAuthenticated = checkAuthenticated;

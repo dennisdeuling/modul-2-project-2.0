@@ -10,10 +10,13 @@ const Booking = require('../models/Booking.model');
 
 router.get('/', (req, res, next) => {
 	const session = req.session;
-
 	Apartment.find()
 		.then(apartments => {
-			res.render('apartments/apartments-list', {apartments, session});
+			res.render('apartments/apartments-list', {
+				apartments,
+				session,
+				loggedIn: res.locals.user
+			});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -32,14 +35,54 @@ router.get('/search', (req, res, next) => {
 		dataQuery = {$or: [{city: city}, {guests: {$gte: guests}}, {'booking.checkin': {$lt: [checkin]}}, {'booking.checkout': {$gt: [checkout]}}]};
 	}
 
+
+	/*
+	console.log('checkin.... ' + checkin);
+	console.log('checkout.... ' + checkout);
+
+	Apartment.aggregate([
+		{'$match': {city: city}},
+		{
+			'$project': {
+				'city': 1,
+				'booking': {
+					'$filter': {
+						'input': '$booking',
+						'as': 'booking',
+						'cond': [
+							{
+								'$or': [
+									{'$gt': ['$booking.checkin', 10]},
+									{'$lt': ['$booking.checkout', 20]}
+								]
+							}
+						]
+					}
+				}
+			}
+		}
+	], function (err, apartments) {
+		console.log('list of appts....');
+		console.log(apartments);
+	});
+
+	 */
+
 	Apartment
 		.find()
-		.populate('booking')
+		.populate('booking', '', 'Booking')
 		.find(dataQuery)
 		.then(apartments => {
 			console.log(apartments);
 			console.log(session);
-			res.render('apartments/apartments-list', {apartments, session});
+			console.log('....');
+			console.log('Checking: ', apartments[0].booking[0].checkin);
+			console.log('Checkout: ', apartments[0].booking[0].checkout);
+			res.render('apartments/apartments-list', {
+				apartments,
+				session,
+				loggedIn: res.locals.user
+			});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -47,7 +90,7 @@ router.get('/search', (req, res, next) => {
 });
 
 router.get('/apartment/create', checkAuthenticated, (req, res, next) => {
-	res.render('apartments/apartment-create');
+	res.render('apartments/apartment-create', {loggedIn: res.locals.user});
 });
 
 router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, next) => {
@@ -109,7 +152,10 @@ router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, nex
 					console.log(apartment);
 					User.findByIdAndUpdate(data.userId, {$push: {apartments: apartment.id}}, {new: true})
 						.then(user => {
-							res.render('apartments/apartment-detail', {apartment});
+							res.render('apartments/apartment-detail', {
+								apartment,
+								loggedIn: res.locals.user
+							});
 						})
 						.catch(error => {
 							console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -132,7 +178,7 @@ router.get('/apartment/:id', (req, res, next) => {
 		.populate('userId')
 		.then(apartment => {
 			console.log('Apartment-Detail: ', apartment);
-			res.render('apartments/apartment-detail', {apartment});
+			res.render('apartments/apartment-detail', {apartment, loggedIn: res.locals.user});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
@@ -195,7 +241,7 @@ router.get('/apartment/:id/edit', checkAuthenticated, (req, res, next) => {
 	Apartment.findById(req.params.id)
 		.then(apartment => {
 			console.log(apartment);
-			res.render('apartments/apartment-edit', {apartment});
+			res.render('apartments/apartment-edit', {apartment, loggedIn: res.locals.user});
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
