@@ -12,6 +12,14 @@ const bookingSchema = new Schema({
 		ref: 'Apartment'
 		// required: true
 	},
+	city: {
+		type: String
+		// required: true
+	},
+	price: {
+		type: String
+		// required: true
+	},
 	checkin: {
 		type: String
 		// required: true

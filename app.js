@@ -33,6 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(flash());
+mongoose.set('useFindAndModify', false);
 
 // Global vars for flash
 app.use((req, res, next) => {

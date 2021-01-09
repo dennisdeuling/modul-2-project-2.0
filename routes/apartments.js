@@ -141,27 +141,39 @@ router.get('/apartment/:id', (req, res, next) => {
 
 router.post('/apartment/:id/book', (req, res, next) => {
 
-	const data = {
-		userId: req.user.id,
-		apartmentId: req.params.id,
-		checkin: req.body.checkin,
-		checkout: req.body.checkout
-	};
+	Apartment.findById(req.params.id)
+		.then(apartment => {
+			const data = {
+				userId: req.user.id,
+				city: apartment.city,
+				price: apartment.price,
+				apartmentId: req.params.id,
+				checkin: req.body.checkin,
+				checkout: req.body.checkout
+			};
+			Booking.create(data)
+				.then(booking => {
 
-	Booking.create(data)
-		.then(booking => {
-			console.log(booking);
+					Apartment.findByIdAndUpdate(data.apartmentId, {$push: {booking: booking.id}}, {new: true})
+						.then(apartmentNew => {
+							User.findByIdAndUpdate(data.userId, {$push: {booking: booking.id}}, {new: true})
+								.then(user => {
 
-			Apartment.findByIdAndUpdate(data.apartmentId, {booking: booking.id}, {new: true})
-				.then(apartmentNew => {
-					// console.log(`Updated apartment: ${apartmentNew}`);
-					req.flash('success_msg', `You have booked this apartment from ${booking.checkin} to ${booking.checkout}.`);
-					res.redirect(`/apartment/${req.params.id}`);
+									req.flash('success_msg', `You have booked this apartment from ${booking.checkin} to ${booking.checkout}.`);
+									res.redirect(`/apartment/${req.params.id}`);
+								})
+								.catch(error => {
+									console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+								});
+						})
+						.catch(error => {
+							console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+						});
+
 				})
 				.catch(error => {
 					console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
 				});
-
 		})
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);

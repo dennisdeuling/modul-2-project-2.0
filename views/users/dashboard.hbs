@@ -3,12 +3,12 @@
 
 <div class="row">
 	<div class="col-2">
-		<img src="{{apartments.[0].userId.profilePic}}" class="float-start profile-pic" alt="...">
+		<img src="{{dataFromDB.profilePic}}" class="float-start profile-pic" alt="...">
 	</div>
 	<div class="col-3 profile-data">
 		<ul class="list-group">
-			<li class="list-group-item">My nickname: {{apartments.[0].userId.name}}</li>
-			<li class="list-group-item">My Email: {{apartments.[0].userId.email}}</li>
+			<li class="list-group-item">My nickname: {{dataFromDB.name}}</li>
+			<li class="list-group-item">My Email: {{dataFromDB.email}}</li>
 		</ul>
 	</div>
 	<div class="row">
@@ -23,7 +23,7 @@
 	</div>
 </div>
 <hr>
-{{#if apartments}}
+{{#if dataFromDB.apartments}}
 	<h5>My offered apartments:</h5>
 	<table class="table table-striped">
 		<thead>
@@ -37,7 +37,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		{{#each apartments}}
+		{{#each dataFromDB.apartments}}
 			<tr>
 				<td>{{this.city}}</td>
 				<td>{{this.address}}</td>
@@ -58,7 +58,7 @@
 {{/if}}
 <a href="/apartment/create" class="btn btn-primary">Create a new Apartment</a>
 <hr>
-{{#if apartments.booking}}
+{{#if dataFromDB.booking}}
 	<h5>My booked apartments:</h5>
 	<table class="table table-striped">
 		<thead>
@@ -70,15 +70,13 @@
 		</tr>
 		</thead>
 		<tbody>
-		{{#each apartments}}
-			{{#if this.booking}}
-				<tr>
-					<td>{{this.city}}</td>
-					<td>{{this.price}}</td>
-					<td>{{this.booking.checkin}}</td>
-					<td>{{this.booking.checkout}}</td>
-				</tr>
-			{{/if}}
+		{{#each dataFromDB.booking}}
+			<tr>
+				<td>{{this.city}}</td>
+				<td>{{this.price}}</td>
+				<td>{{this.checkin}}</td>
+				<td>{{this.checkout}}</td>
+			</tr>
 		{{/each}}
 		</tbody>
 	</table>

@@ -83,6 +83,20 @@ router.post('/login', (req, res, next) => {
 router.get('/dashboard', (req, res, next) => {
 	const userId = req.session.passport.user;
 
+	User
+		.findById(userId)
+		.populate('apartments', '', 'Apartment', '')
+		.populate('booking', '', 'Booking', '')
+		.then(dataFromDB => {
+			console.log(dataFromDB);
+			res.render('users/dashboard', {dataFromDB});
+		})
+		.catch(error => {
+			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+		});
+
+
+	/*
 	console.log(req.params.id);
 	Apartment
 		.find({userId: userId})
@@ -95,6 +109,7 @@ router.get('/dashboard', (req, res, next) => {
 		.catch(error => {
 			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
 		});
+	 */
 });
 
 router.get('/:id/edit', checkAuthenticated, (req, res, next) => {

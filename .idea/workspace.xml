@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="55315dd1-d647-47af-9b71-51ae7c5d7903" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/seed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Apartment.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Apartment.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Booking.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Booking.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/User.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/users/dashboard.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/dashboard.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +82,7 @@
       <workItem from="1608996140182" duration="3728000" />
       <workItem from="1609584004952" duration="52000" />
       <workItem from="1609584079252" duration="89713000" />
-      <workItem from="1610097355715" duration="31165000" />
+      <workItem from="1610097355715" duration="37687000" />
     </task>
     <servers />
   </component>

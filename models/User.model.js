@@ -26,6 +26,11 @@ const userSchema = new Schema({
 		type: [Schema.Types.ObjectId],
 		ref: 'Apartment'
 		// required: true
+	},
+	booking: {
+		type: [Schema.Types.ObjectId],
+		ref: 'Booking'
+		// required: true
 	}
 }, {
 	timestamps: true

@@ -378,8 +378,7 @@ const userApartments2 = [
 	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4aa'),
 	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4ab'),
 	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4a3'),
-	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4ac'),
-	new mongoose.mongo.ObjectId('5ff44349728eb77741a51888')
+	new mongoose.mongo.ObjectId('5ff848892326ea0ca4cfd4ac')
 ];
 
 
