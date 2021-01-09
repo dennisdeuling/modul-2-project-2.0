@@ -25,69 +25,71 @@ router.get('/', (req, res, next) => {
 
 
 router.get('/search', (req, res, next) => {
-	const {city, checkin, checkout, guests} = req.query;
-	let dataQuery;
-	req.session.checkin = checkin || '';
-	req.session.checkout = checkout || '';
-	const session = req.session;
+		const {city, checkin, checkout, guests} = req.query;
+		let dataQuery;
+		req.session.checkin = checkin || '';
+		req.session.checkout = checkout || '';
+		const session = req.session;
 
-	if (city || guests || checkin || checkout) {
-		dataQuery = {$or: [{city: city}, {guests: {$gte: guests}}, {'booking.checkin': {$lt: [checkin]}}, {'booking.checkout': {$gt: [checkout]}}]};
-	}
+		if (city || guests || checkin || checkout) {
+			// dataQuery = {$or: [{city: city}, {guests: {$gte: guests}}, {'booking.checkin': {$lt: [checkin]}}, {'booking.checkout': {$gt: [checkout]}}]};
+			dataQuery = {$or: [{city: city}, {guests: {$gte: guests}}]};
+		}
 
 
-	/*
-	console.log('checkin.... ' + checkin);
-	console.log('checkout.... ' + checkout);
+		/*
+		console.log('checkin.... ' + checkin);
+		console.log('checkout.... ' + checkout);
 
-	Apartment.aggregate([
-		{'$match': {city: city}},
-		{
-			'$project': {
-				'city': 1,
-				'booking': {
-					'$filter': {
-						'input': '$booking',
-						'as': 'booking',
-						'cond': [
-							{
-								'$or': [
-									{'$gt': ['$booking.checkin', 10]},
-									{'$lt': ['$booking.checkout', 20]}
-								]
-							}
-						]
+		Apartment.aggregate([
+			{'$match': {city: city}},
+			{
+				'$project': {
+					'city': 1,
+					'booking': {
+						'$filter': {
+							'input': '$booking',
+							'as': 'booking',
+							'cond': [
+								{
+									'$or': [
+										{'$gt': ['$booking.checkin', 10]},
+										{'$lt': ['$booking.checkout', 20]}
+									]
+								}
+							]
+						}
 					}
 				}
 			}
-		}
-	], function (err, apartments) {
-		console.log('list of appts....');
-		console.log(apartments);
-	});
-
-	 */
-
-	Apartment
-		.find()
-		.populate('booking', '', 'Booking')
-		.find(dataQuery)
-		.then(apartments => {
+		], function (err, apartments) {
+			console.log('list of appts....');
 			console.log(apartments);
-			console.log(session);
-			console.log('....');
-			console.log('Checking: ', apartments[0].booking[0].checkin);
-			console.log('Checkout: ', apartments[0].booking[0].checkout);
-			res.render('apartments/apartments-list', {
-				apartments,
-				session,
-				loggedIn: res.locals.user
-			});
-		})
-		.catch(error => {
-			console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
 		});
-});
+
+		 */
+
+		Apartment
+			.find()
+			.populate('booking', '', 'Booking')
+			.find(dataQuery)
+			.then(apartments => {
+				/*			console.log(apartments);
+							console.log(session);
+							console.log('....');
+							console.log('Checking: ', apartments[0].booking[0].checkin);
+							console.log('Checkout: ', apartments[0].booking[0].checkout);*/
+				res.render('apartments/apartments-list', {
+					apartments,
+					session,
+					loggedIn: res.locals.user
+				});
+			})
+			.catch(error => {
+				console.log(`I'm sorry but an error happened. Check this out bro: ${error}`);
+			});
+	}
+);
 
 router.get('/apartment/create', checkAuthenticated, (req, res, next) => {
 	res.render('apartments/apartment-create', {loggedIn: res.locals.user});
