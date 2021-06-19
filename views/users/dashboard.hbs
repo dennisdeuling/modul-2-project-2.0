@@ -1,27 +1,24 @@
 {{> success_msg}}
 <h1>My Dashboard:</h1>
-
-<div class="row">
-	<div class="col-2">
-		<img src="{{dataFromDB.profilePic}}" class="float-start profile-pic" alt="...">
-	</div>
-	<div class="col-3 profile-data">
-		<ul class="list-group">
-			<li class="list-group-item">My nickname: {{dataFromDB.name}}</li>
-			<li class="list-group-item">My Email: {{dataFromDB.email}}</li>
-		</ul>
-	</div>
-	<div class="row">
-		<div class="col-2 profile-data">
+<table class="table profile-data">
+	<tbody>
+	<tr class="profile-content">
+		<td>
+			<img src="{{dataFromDB.profilePic}}" class="float-start profile-pic" alt="...">
+		</td>
+		<td>My nickname: {{dataFromDB.name}}</td>
+		<td>My Email: {{dataFromDB.email}}</td>
+		<td>
 			<a href="/{{dataFromDB.id}}/edit" class="fas fa-edit btn btn-primary"></a>
-		</div>
-		<div class="col-2 profile-data">
+		</td>
+		<td>
 			<form action="/{{dataFromDB.id}}/delete" method="post">
 				<button type="submit" class="fas fa-trash-alt btn btn-primary"></button>
 			</form>
-		</div>
-	</div>
-</div>
+		</td>
+	</tr>
+	</tbody>
+</table>
 <hr>
 {{#if dataFromDB.apartments}}
 	<h5>My offered apartments:</h5>
