@@ -37,30 +37,30 @@ mongoose.set('useFindAndModify', false);
 
 // Global vars for flash
 app.use((req, res, next) => {
-	res.locals.success_msg = req.flash('success_msg');
-	res.locals.error_msg = req.flash('error_msg');
-	res.locals.warning_msg = req.flash('warning_msg');
-	res.locals.error = req.flash('error');
-	res.locals.user = req.isAuthenticated();
-	next();
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.warning_msg = req.flash('warning_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.isAuthenticated();
+    next();
 });
 
 // Express View engine setup
-app.use(require('node-sass-middleware')({
+/*app.use(require('node-sass-middleware')({
 	src: path.join(__dirname, 'public'),
 	dest: path.join(__dirname, 'public'),
 	sourceMap: true
-}));
+}));*/
 
 hbs.registerHelper('truncate', function (str, len) {
-	if (str.length > len && str.length > 0) {
-		let new_str = str + ' ';
-		new_str = str.substr(0, len);
-		new_str = str.substr(0, new_str.lastIndexOf(' '));
-		new_str = new_str.length > 0 ? new_str : str.substr(0, len);
-		return new_str + '...';
-	}
-	return str;
+    if (str.length > len && str.length > 0) {
+        let new_str = str + ' ';
+        new_str = str.substr(0, len);
+        new_str = str.substr(0, new_str.lastIndexOf(' '));
+        new_str = new_str.length > 0 ? new_str : str.substr(0, len);
+        return new_str + '...';
+    }
+    return str;
 });
 
 
