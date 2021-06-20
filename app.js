@@ -45,13 +45,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Express View engine setup
-/*app.use(require('node-sass-middleware')({
-	src: path.join(__dirname, 'public'),
-	dest: path.join(__dirname, 'public'),
-	sourceMap: true
-}));*/
-
 hbs.registerHelper('truncate', function (str, len) {
     if (str.length > len && str.length > 0) {
         let new_str = str + ' ';
