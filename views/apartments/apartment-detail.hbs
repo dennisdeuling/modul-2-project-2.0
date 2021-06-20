@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+		<div class="col">
+			{{> success_msg }}
+			<h1>{{apartment.headline}}</h1>
+			<h6>{{apartment.city}}, {{apartment.address}}</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col detail-view-pics-big">
+			<img src="{{apartment.images.path.[0]}}" class="rounded img-fluid image-1" alt="...">
+			<div class="detail-view-pics-little">
+				<img src="{{apartment.images.path.[1]}}" class="rounded img-fluid image-2" alt="Responsive image">
+				<img src="{{apartment.images.path.[2]}}" class="rounded img-fluid image-3" alt="Responsive image">
+				<img src="{{apartment.images.path.[3]}}" class="rounded img-fluid image-4" alt="Responsive image">
+				<img src="{{apartment.images.path.[4]}}" class="rounded img-fluid image-5" alt="Responsive image">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h3>Gastgeber: {{apartment.userId.name}}</h3>
+			<h6>{{apartment.rooms.bedrooms}} Bedrooms, {{apartment.rooms.livingrooms}}
+				Livingrooms, {{apartment.rooms.bathrooms}} Bathrooms, {{apartment.rooms.kitchens}} Kitchen</h6>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<ul>
+				{{#if apartment.facilities.wifi}}
+					<li>WiFi</li>
+				{{/if}}
+				{{#if apartment.facilities.tv}}
+					<li>TV</li>
+				{{/if}}
+				{{#if apartment.facilities.washer}}
+					<li>Washer</li>
+				{{/if}}
+				{{#if apartment.facilities.dryer}}
+					<li>Dryer</li>
+				{{/if}}
+				{{#if apartment.facilities.dishwasher}}
+					<li>Dishwasher</li>
+				{{/if}}
+				{{#if apartment.facilities.parkinglot}}
+					<li>Parkinglot</li>
+				{{/if}}
+			</ul>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<p>{{apartment.text}}</p>
+		</div>
+	</div>
+	<div class="row">
+		{{> buttonBook apartment}}
+	</div>
+	<div class="row">
+		<div id="map"></div>
+	</div>
+</div>
+
+
+
