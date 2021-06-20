@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 const {uploadArray} = require('../configs/upload-pics-array.config');
+const fileUploader = require('../configs/cloudinaryImageSetup.config');
 const {checkAuthenticated} = require('../configs/passport.config');
 const Apartment = require('../models/Apartment.model');
 const User = require('../models/User.model');
@@ -63,7 +64,7 @@ router.get('/apartment/create', checkAuthenticated, (req, res, next) => {
     res.render('apartments/apartment-create', {loggedIn: res.locals.user});
 });
 
-router.post('/apartment/create', checkAuthenticated, uploadArray, (req, res, next) => {
+router.post('/apartment/create', checkAuthenticated, fileUploader.array('file', '5'), (req, res, next) => {
     const userId = req.session.passport.user;
     let data = {};
     const uploadedPics = [];
